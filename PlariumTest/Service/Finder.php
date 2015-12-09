@@ -1,11 +1,18 @@
 <?php
 
-class Finder extends ServiceAbstract {
+class Finder {
+
+    protected $strings = array();
+
+    public function __construct($input) {
+        foreach ($input as $value) {
+
+            $this->strings[] = trim(mb_strtolower($value, 'UTF-8'));
+        }
+    }
 
     public function CheckWords() {
         $allWords = $this->GetAllWords($this->strings);
-        echo '<PRE>';
-        //var_dump(array_unique($allWords));
         $count = array_count_values($allWords);
 
         foreach ($count as $key => $value) {
@@ -31,6 +38,15 @@ class Finder extends ServiceAbstract {
             }
         }
         return $count;
+    }
+
+    protected function GetAllWords($strings) {
+        $text = '';
+        foreach ($strings as $value) {
+            $text .= empty($text) ? $value : ' ' . $value;
+        }
+        $AllWords = explode(' ', $text);
+        return $AllWords;
     }
 
 }

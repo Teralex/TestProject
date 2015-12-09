@@ -10,7 +10,7 @@ if (isset($_POST['word'])) {
     $res = new Declination($_POST['word'], $_POST['sex']);
     $test = $res->GetDeclination();
 } elseif (isset($_POST['message'])) {
-    require_once '/Service/ServiceAbstract.php';
+
     require_once '/Service/Finder.php';
     $strings = explode('/n', $_POST['message']);
     $res = new Finder($strings);
