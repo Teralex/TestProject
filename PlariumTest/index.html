@@ -7,10 +7,15 @@
         <link rel="stylesheet" media="screen" href="/Styles/style.css" >
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="/js/ajax.js"></script>
+
     </head>
     <body>
 
-        <form class="declination_form" action='index.php' method="post" name="declination_form">
+
+        <form id="form" class="declination_form" action='' method="post" name="declination_form">
             <ul>
                 <li>
                     <h2>Get declination</h2>
@@ -22,12 +27,30 @@
                 <li>
                     <label for="sex">Sex(м\ж\ср):</label>
                     <input type="text" name="sex" />
-                    <span class="form_hint"> Если оставить пустым, попробует определить пол из внешнего источника</span>
+                    <span class="form_hint"> Если оставить пустым, попробует определить пол из внешнего источника( Запросы ограниченны по IP)</span>
                 </li>
                 <li>
-                    <button class="submit" type="submit" >Submit Form</button>
+                    <input class="submit" type="button" id="btn" value="Отправить" />
                 </li>
             </ul>
+
+
         </form>
+        <div id="result_form"></div> 
+        <form id="form2" class="declination_form" action='' method="post" name="declination_form">
+            <ul>
+                <li>
+                    <h2>Get repeat words</h2>
+                </li>
+                <li>
+                    <label for="word">Enter your text</label>
+                    <textarea name="message" cols="40" rows="6" > </textarea>
+                </li>
+                <li>
+                    <input class="submit" type="button" id="btn2" value="Отправить" />
+                </li>
+            </ul>   
+        </form>
+        <div id="result_form2"></div> 
     </body>
 </html> 

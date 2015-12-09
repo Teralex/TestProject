@@ -34,7 +34,6 @@ class Declination {
     public function __construct($word, $sex) {
         // check exeption endings
         $this->sex = !empty($sex) ? $sex : $this->getSex($word);
-        var_dump($this->sex);
         $endings = mb_substr($word, -2);
         $this->ends = (in_array($endings, $this->doubleEnds)) ? $endings : mb_substr($endings, -1);
 
