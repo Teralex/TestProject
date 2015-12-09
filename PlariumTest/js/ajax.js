@@ -20,11 +20,13 @@ function sendAjaxForm(result_form, ajax_form, url) {
         dataType: "html", //формат данных
         data: jQuery("#" + ajax_form).serialize(), // Сеарилизуем объект
         success: function (response) { //Данные отправлены успешно
+            console.log(response);
             result = jQuery.parseJSON(response);
+            console.log(result);
+
             var string = '';
             $.each(result, function (index, value) {
-                string = string + "<br>" + value;
-
+                string = string + "<br>" + index + ':' + value;
             });
             document.getElementById(result_form).innerHTML = string;
         },
