@@ -14,10 +14,11 @@ require_once '/Service/Declination.php';
 require_once '/Service/config.php';
 if (isset($_POST['word'])) {
     $testWord = $_POST['word'];
+    $sex = $_POST['sex'];
 }
 ////$res = new Finder($testArray);
 //$unique = $res->CheckWords();
-$res = new Declination($testWord);
+$res = new Declination($testWord, $sex);
 $test = $res->GetDeclination();
 var_dump($test);
 //var_dump($unique);

@@ -4,16 +4,30 @@
     <head>
         <meta charset="UTF-8">
         <title>My test project</title>
-
+        <link rel="stylesheet" media="screen" href="/Styles/style.css" >
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     </head>
     <body>
 
-        <form action = "index.php" method = "post">
-            <input type = "text" name = "word">
-            <input type = "submit" name = "submit" name= "sumbit" value = "Константа">
+        <form class="declination_form" action='index.php' method="post" name="declination_form">
+            <ul>
+                <li>
+                    <h2>Get declination</h2>
+                </li>
+                <li>
+                    <label for="word">Word:</label>
+                    <input type="text" name="word" />
+                </li>
+                <li>
+                    <label for="sex">Sex(м\ж\ср):</label>
+                    <input type="text" name="sex" />
+                    <span class="form_hint"> Если оставить пустым, попробует определить пол из внешнего источника</span>
+                </li>
+                <li>
+                    <button class="submit" type="submit" >Submit Form</button>
+                </li>
+            </ul>
         </form>
-
     </body>
-</html>
+</html> 

@@ -16,7 +16,7 @@ class Declination {
      * @var array $doubleEnds
      * Array used to check double ends exeptions 
      */
-    protected $doubleEnds = array('ок', 'ек', 'ёк', 'мя', 'ка');
+    protected $doubleEnds = array('ок', 'ек', 'ёк', 'мя', 'ка', 'це');
 
     /**
      * @var string $doubleEnds
@@ -26,14 +26,15 @@ class Declination {
     /**
      * @var string $sex
      */
-    protected $sex;
+    protected $sex = '';
 
     /**
      * @param string $word
      */
-    public function __construct($word) {
+    public function __construct($word, $sex) {
         // check exeption endings
-        $this->sex = $this->getSex($word);
+        $this->sex = !empty($sex) ? $sex : $this->getSex($word);
+        var_dump($this->sex);
         $endings = mb_substr($word, -2);
         $this->ends = (in_array($endings, $this->doubleEnds)) ? $endings : mb_substr($endings, -1);
 
@@ -72,17 +73,12 @@ class Declination {
      * @return array()
      */
     protected function getSex($word) {
-        return 'ж';
-        $header = array(
-            'Content-Type: text/html; utf-8; charset=UTF-8',
-        );
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'http://htmlweb.ru/service/api.php?sex=' . $word);
+        curl_setopt($curl, CURLOPT_URL, 'http://htmlweb.ru/service/api.php?sex=' . $word . '&charset=utf-8&json&fields=sex');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-        $out = curl_exec($curl);
+        $out = json_decode(curl_exec($curl), true);
         curl_close($curl);
-        die($out);
+        return $out['sex'];
     }
 
 }
