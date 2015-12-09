@@ -5,7 +5,6 @@ class Finder {
     protected $strings = array();
 
     public function __construct($input) {
-        // $this->strings = $input;
         $this->strings = explode("\n", mb_strtolower($input));
     }
 
@@ -16,7 +15,7 @@ class Finder {
         foreach ($count as $key => $value) {
 
             if ($value > 1) {
-                
+
                 $result[$key] = $value;
             }
         }
@@ -27,6 +26,7 @@ class Finder {
 
     protected function AdvancedSearch($words = array()) {
         $count = 0;
+
         $all = implode(' ', $words);
         foreach ($this->strings as $string) {
             $str = explode(' ', $string);
