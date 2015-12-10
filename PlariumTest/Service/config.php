@@ -30,6 +30,10 @@ class Config {
      */
     protected $rule;
 
+    /**
+     * @param string $endings
+     * @param string $sex
+     */
     public function __construct($sex, $endings) {
 
         $this->rule = 'second';
@@ -39,11 +43,15 @@ class Config {
             $this->rule = $this->declinations["$endings"]["$sex"];
         }
     }
-
+  /**
+     * return string
+     */
     public function getRule() {
         return $this->rule;
     }
-
+    /**
+     * @var string $end
+     */
     public function secondCase($end) {
         $changes = array(
             'ок' => array('ок', 'ка', 'ку', 'ок', 'ком', 'кe'),
@@ -59,7 +67,9 @@ class Config {
         }
         return array('', 'а', 'у', '', 'ом', 'e');
     }
-
+  /**
+     * @var string $end
+     */
     public function firstCase($end) {
         $changes = array(
             'а' => array('а', 'ы', 'е', 'у', 'ой', 'e'),
@@ -68,11 +78,15 @@ class Config {
         );
         return $changes["$end"];
     }
-
+  /**
+     * @var string $end
+     */
     public function thirdCase($end) {
         return array($end, 'и', 'и', $end, $end . 'ю', 'и');
     }
-
+  /**
+     * @var string $end
+     */
     public function heterocliteCase($end) {
         return array($end, 'мени', 'мени', $end, 'менем', 'мени');
     }
