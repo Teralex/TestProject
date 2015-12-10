@@ -31,7 +31,7 @@ class Declination {
     /**
      * @param string $word
      */
-    public function __construct($word, $sex) {
+    public function __construct($word, $sex = '') {
         // check exeption endings
         $this->sex = !empty($sex) ? $sex : $this->getSex($word);
         $endings = mb_substr($word, -2);
