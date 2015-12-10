@@ -15,10 +15,10 @@ $(document).ready(function () {
 
 function sendAjaxForm(result_form, ajax_form, url) {
     jQuery.ajax({
-        url: url, //url страницы (action_ajax_form.php)
+        url: url, //url страницы (index.php)
         type: "POST", //метод отправки
         dataType: "html", //формат данных
-        data: jQuery("#" + ajax_form).serialize(), // Сеарилизуем объект
+        data: jQuery("#" + ajax_form).serialize(), // Сериализуем объект
         success: function (response) { //Данные отправлены успешно
             console.log(response);
             result = jQuery.parseJSON(response);
