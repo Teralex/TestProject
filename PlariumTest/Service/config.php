@@ -52,6 +52,7 @@ class Config {
     /**
      * @var string $end
      */
+ 
     public function secondCase($end) {
         $changes = array(
             'ок' => array('ок', 'ка', 'ку', 'ок', 'ком', 'кe'),
@@ -60,12 +61,13 @@ class Config {
             'це' => array('цe', 'ца', 'цу', 'цe', 'ем', 'цe'),
             'е' => array('e', 'я', 'ю', 'e', 'ем', 'e'),
             'ё' => array('ё', 'я', 'ю', 'ё', 'ем', 'e'),
-            'о' => array('о', 'а', 'у', 'о', 'ом', 'e')
+            'о' => array('о', 'а', 'у', 'о', 'ом', 'e'),
+            'ь' => array('ь', 'я', 'ю', 'ь', 'ем', 'e'),
         );
         if (isset($changes["$end"])) {
             return $changes["$end"];
         }
-        return array('', 'а', 'у', '', 'ом', 'e');
+        return array($end, $end . 'а', $end .'у', $end, $end . 'ом',$end . 'e');
     }
   /**
      * @var string $end
