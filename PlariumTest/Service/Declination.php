@@ -77,7 +77,7 @@ class Declination {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $out = json_decode(curl_exec($curl), true);
         curl_close($curl);
-        return $out['sex'];
+        return mb_strtolower($out['sex']);
     }
 
 }
